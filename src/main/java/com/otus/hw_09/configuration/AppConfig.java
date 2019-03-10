@@ -15,12 +15,24 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     private static final String LIBRARY = "library";
+    private static final String LIBRARY_TEST = "library-test";
 
     @Bean
     @ConditionalOnProperty(prefix = "app.config", name = "dbType", havingValue = "mongo-docker")
     public Mongock mongock(final ApplicationContext ac, final MongoClient mongoClient) {
         log.info("invoked mongock(ApplicationContext, MongoClient)");
         return new SpringBootMongockBuilder(mongoClient, LIBRARY,
+            LibraryChangeLog.class.getPackage().getName())
+            .setApplicationContext(ac)
+            .setLockQuickConfig()
+            .build();
+    }
+
+    @Bean
+    @ConditionalOnProperty(prefix = "app.config", name = "dbType", havingValue = "mongo-embedded")
+    public Mongock mongockTest(final ApplicationContext ac, final MongoClient mongoClient) {
+        log.info("invoked mongockTest(ApplicationContext, MongoClient)");
+        return new SpringBootMongockBuilder(mongoClient, LIBRARY_TEST,
             LibraryChangeLog.class.getPackage().getName())
             .setApplicationContext(ac)
             .setLockQuickConfig()
