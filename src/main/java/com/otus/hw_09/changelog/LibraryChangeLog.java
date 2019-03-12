@@ -5,8 +5,6 @@ import com.github.cloudyrock.mongock.ChangeSet;
 import com.mongodb.MongoClient;
 import com.otus.hw_09.domain.Comment;
 import lombok.extern.slf4j.Slf4j;
-import org.bson.BsonArray;
-import org.bson.BsonObjectId;
 import org.bson.BsonString;
 import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -134,7 +132,6 @@ public class LibraryChangeLog {
         log.info("Created {} documents in '{}'", genres.size(), GENRES);
     }
 
-
     @ChangeSet(author = "admin", id = "createInitialBooks", order = "030")
     public void initializeBooksCollection(final MongoTemplate template) {
         final var collection = template.getDb()
@@ -167,11 +164,11 @@ public class LibraryChangeLog {
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419321"))
                 .append("title", "Don Quixote")
-                .append("year", new BsonString("1615"))
-                .append("authors", new BsonArray(singletonList(
-                    new BsonObjectId(new ObjectId("5c6c5beb4c8518fde52fc3d6")))))
-                .append("genres", new BsonArray(singletonList(
-                    new BsonObjectId(new ObjectId("5c6c5beb4c8518fde52fc3e7")))))
+                .append("year", "1615")
+                .append("authors", singletonList(
+                    new ObjectId("5c6c5beb4c8518fde52fc3d6")))
+                .append("genres", singletonList(
+                    new ObjectId("5c6c5beb4c8518fde52fc3e7")))
                 .append("comments", singletonList(
                     new Comment(1, "classics")))
             );
@@ -212,7 +209,7 @@ public class LibraryChangeLog {
                 .append("title", "Childhood")
                 .append("year", "1852")
                 .append("authors", singletonList(
-                    new BsonObjectId(new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
+                    new ObjectId("5c6c5beb4c8518fde52fc3d8")))
                 .append("genres", Arrays.asList(
                     new ObjectId("5c6c5beb4c8518fde52fc3e2"),
                     new ObjectId("5c6c5beb4c8518fde52fc3e5"),
