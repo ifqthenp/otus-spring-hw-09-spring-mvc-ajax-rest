@@ -25,7 +25,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 @ChangeLog
 public class LibraryChangeLog {
 
-    private static final String DATABASE = "library";
+    private static final String LIBRARY_DB = "library";
     private static final String AUTHORS = "authors";
     private static final String GENRES = "genres";
     private static final String BOOKS = "books";
@@ -36,7 +36,7 @@ public class LibraryChangeLog {
     @ChangeSet(author = "user", id = "dropDb", order = "001", runAlways = true)
     public void dropDb(final MongoTemplate template) {
         template.getDb().drop();
-        log.info("Dropped db: {}", DATABASE);
+        log.info("Dropped db: {}", LIBRARY_DB);
     }
 
     @ChangeSet(author = "admin", id = "createInitialAuthors", order = "010")
@@ -48,51 +48,51 @@ public class LibraryChangeLog {
                 .append("firstName", "Lewis")
                 .append("lastName", "Carrol")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241931f"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241931f"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3d5"))
                 .append("firstName", "Charlotte")
                 .append("lastName", "Bronte")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419320"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419320"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3d6"))
                 .append("firstName", "Miguel")
                 .append("lastName", "de Cervantes")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419321"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419321"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3d7"))
                 .append("firstName", "Herbert")
                 .append("lastName", "Wells")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419322"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419322"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3d8"))
                 .append("firstName", "Leo")
                 .append("lastName", "Tolstoy")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419323")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419326")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419325"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419323")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419326")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419325"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3d9"))
                 .append("firstName", "Jane")
                 .append("lastName", "Austen")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419324"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419324"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3da"))
                 .append("firstName", "Gabriel")
                 .append("lastName", "García Márquez")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419327"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419327"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3db"))
@@ -100,23 +100,23 @@ public class LibraryChangeLog {
                 .append("firstName", "Leonardo")
                 .append("lastName", "Fibonacci")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419328"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419328"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3dc"))
                 .append("firstName", "Ilya")
                 .append("lastName", "Ilf")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419329")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241932a"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419329")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241932a"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3dd"))
                 .append("firstName", "Yevgeni")
                 .append("lastName", "Petrov")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419329")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241932a"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419329")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241932a"))))
                 .append("_class", "com.otus.hw_09.domain.Author"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3de"))
@@ -138,68 +138,68 @@ public class LibraryChangeLog {
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e2"))
                 .append("genreName", "Autobiography")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419320")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419325")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419326"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419320")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419325")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419326"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e3"))
                 .append("genreName", "Children's Literature")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241931f"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241931f"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e4"))
                 .append("genreName", "Fantasy")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241931f"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241931f"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e5"))
                 .append("genreName", "Literary realism")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419323")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419325")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419326"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419323")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419325")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419326"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e6"))
                 .append("genreName", "Mathematics")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419328"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419328"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e7"))
                 .append("genreName", "Novel")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419320")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419321")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419323")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419325")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419326")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419327")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419329")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241932a"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419320")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419321")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419323")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419325")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419326")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419327")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419329")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241932a"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e8"))
                 .append("genreName", "Romance")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419320")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419324"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419320")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419324"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3e9"))
                 .append("genreName", "Satire")
                 .append("books", Arrays.asList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419329")),
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f51169241932a"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419329")),
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f51169241932a"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3ea"))
                 .append("genreName", "Science-fiction")
                 .append("books", singletonList(
-                    new DBRef(DATABASE, BOOKS, new ObjectId("5c857854402f511692419322"))))
+                    new DBRef(LIBRARY_DB, BOOKS, new ObjectId("5c857854402f511692419322"))))
                 .append("_class", "com.otus.hw_09.domain.Genre"));
             add(new Document()
                 .append("_id", new ObjectId("5c6c5beb4c8518fde52fc3eb"))
@@ -223,10 +223,10 @@ public class LibraryChangeLog {
                 .append("title", "Alice in Wonderland")
                 .append("year", "1865")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d4"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d4"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e3")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e4"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e3")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e4"))))
                 .append("comments", Arrays.asList(
                     new Comment(1, "excellent"), new Comment(2, "awesome"))));
             add(new Document()
@@ -234,10 +234,10 @@ public class LibraryChangeLog {
                 .append("title", "Jane Eyre")
                 .append("year", "1847")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d5"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d5"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2"))))
                 .append("comments", singletonList(
                     new Comment(1, "enjoyable reading"))));
             add(new Document()
@@ -245,9 +245,9 @@ public class LibraryChangeLog {
                 .append("title", "Don Quixote")
                 .append("year", "1615")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d6"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d6"))))
                 .append("genres", singletonList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", singletonList(
                     new Comment(1, "classics"))));
             add(new Document()
@@ -255,91 +255,91 @@ public class LibraryChangeLog {
                 .append("title", "The Time Machine")
                 .append("year", "1895")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d7"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d7"))))
                 .append("genres", singletonList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3ea"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3ea"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419323"))
                 .append("title", "Anna Karenina")
                 .append("year", "1878")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419324"))
                 .append("title", "Pride and Prejudice")
                 .append("year", "1813")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d9"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d9"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e8")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e8")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419325"))
                 .append("title", "Childhood")
                 .append("year", "1852")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419326"))
                 .append("title", "Boyhood")
                 .append("year", "1854")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d8"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419327"))
                 .append("title", "Love in the Time of Cholera")
                 .append("year", "1985")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3da"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3da"))))
                 .append("genres", singletonList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419328"))
                 .append("title", "The Book of Calculation")
                 .append("year", "1202")
                 .append("authors", singletonList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3db"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3db"))))
                 .append("genres", singletonList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e6"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e6"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419329"))
                 .append("title", "The Twelve Chairs")
                 .append("year", "1928")
                 .append("authors", Arrays.asList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dd")),
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dc"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dd")),
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dc"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f51169241932a"))
                 .append("title", "The Little Golden Calf")
                 .append("year", "1931")
                 .append("authors", Arrays.asList(
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dd")),
-                    new DBRef(DATABASE, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dc"))))
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dd")),
+                    new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3dc"))))
                 .append("genres", Arrays.asList(
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
-                    new DBRef(DATABASE, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
+                    new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", new ArrayList<>()));
         }};
 
