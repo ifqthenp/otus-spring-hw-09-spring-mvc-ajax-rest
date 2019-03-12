@@ -228,7 +228,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e3")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e4"))))
                 .append("comments", Arrays.asList(
-                    new Comment(1, "excellent"), new Comment(2, "awesome"))));
+                    new Comment(1, "excellent"), new Comment(2, "awesome")))
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419320"))
                 .append("title", "Jane Eyre")
@@ -239,7 +240,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2"))))
                 .append("comments", singletonList(
-                    new Comment(1, "enjoyable reading"))));
+                    new Comment(1, "enjoyable reading")))
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419321"))
                 .append("title", "Don Quixote")
@@ -249,7 +251,8 @@ public class LibraryChangeLog {
                 .append("genres", singletonList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
                 .append("comments", singletonList(
-                    new Comment(1, "classics"))));
+                    new Comment(1, "classics")))
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419322"))
                 .append("title", "The Time Machine")
@@ -258,7 +261,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3d7"))))
                 .append("genres", singletonList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3ea"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419323"))
                 .append("title", "Anna Karenina")
@@ -268,7 +272,8 @@ public class LibraryChangeLog {
                 .append("genres", Arrays.asList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419324"))
                 .append("title", "Pride and Prejudice")
@@ -278,7 +283,8 @@ public class LibraryChangeLog {
                 .append("genres", Arrays.asList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e8")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419325"))
                 .append("title", "Childhood")
@@ -289,7 +295,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419326"))
                 .append("title", "Boyhood")
@@ -300,7 +307,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e2")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e5")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419327"))
                 .append("title", "Love in the Time of Cholera")
@@ -309,7 +317,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3da"))))
                 .append("genres", singletonList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419328"))
                 .append("title", "The Book of Calculation")
@@ -318,7 +327,8 @@ public class LibraryChangeLog {
                     new DBRef(LIBRARY_DB, AUTHORS, new ObjectId("5c6c5beb4c8518fde52fc3db"))))
                 .append("genres", singletonList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e6"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f511692419329"))
                 .append("title", "The Twelve Chairs")
@@ -329,7 +339,8 @@ public class LibraryChangeLog {
                 .append("genres", Arrays.asList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
             add(new Document()
                 .append("_id", new ObjectId("5c857854402f51169241932a"))
                 .append("title", "The Little Golden Calf")
@@ -340,7 +351,8 @@ public class LibraryChangeLog {
                 .append("genres", Arrays.asList(
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e9")),
                     new DBRef(LIBRARY_DB, GENRES, new ObjectId("5c6c5beb4c8518fde52fc3e7"))))
-                .append("comments", new ArrayList<>()));
+                .append("comments", new ArrayList<>())
+                .append("_class", "com.otus.hw_09.domain.Book"));
         }};
 
         collection.insertMany(books);
