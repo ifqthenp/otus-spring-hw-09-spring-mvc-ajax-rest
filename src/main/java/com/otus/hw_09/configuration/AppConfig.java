@@ -39,4 +39,14 @@ public class AppConfig {
             .build();
     }
 
+    @Bean
+    public GenreCascadeSaveMongoEventListener genreCascadeSaveMongoEventListener() {
+        return new GenreCascadeSaveMongoEventListener();
+    }
+
+    @Bean
+    public AuthorCascadeSaveMongoEventListener authorCascadeSaveMongoEventListener() {
+        return new AuthorCascadeSaveMongoEventListener();
+    }
+
 }
