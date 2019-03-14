@@ -15,7 +15,7 @@
     </div>
     <div class="row mt-4">
         <div class="col">
-            <form action="#" th:action="@{/library/books/add}" th:object="${bookDto}" method="post">
+            <form action="#" th:action="@{/library/books/add}" th:object="${bookFormDto}" method="post">
                 <div class="form-group">
                     <label for="inputBookTitle">Enter book title</label>
                     <input type="text" th:field="*{title}" class="form-control" id="inputBookTitle">
