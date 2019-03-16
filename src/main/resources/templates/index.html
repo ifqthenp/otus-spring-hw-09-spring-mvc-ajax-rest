@@ -21,7 +21,7 @@
 <div th:replace="~{fragments/scripts::common-scripts}"></div>
 <script>
     $(document).ready(function () {
-        $.getJSON('/library/totals').then(
+        $.getJSON('/library/api/totals').then(
             function success(value) {
                 $('#booksTotal').html(value.booksCount);
                 $('#authorsTotal').html(value.authorsCount);

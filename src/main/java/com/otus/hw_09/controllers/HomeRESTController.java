@@ -18,7 +18,7 @@ public class HomeRESTController {
     private final BookRepository bookRepo;
     private final AuthorRepository authorRepo;
 
-    @GetMapping(path = "/library/totals", produces = {"application/json"})
+    @GetMapping(path = "/library/api/totals", produces = {"application/json"})
     public ResponseEntity<Map> getLibraryTotals() {
         final long booksCount = bookRepo.count();
         final long authorsCount = authorRepo.count();
