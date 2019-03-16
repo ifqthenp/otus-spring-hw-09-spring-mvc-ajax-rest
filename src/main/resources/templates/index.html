@@ -12,12 +12,25 @@
         <div class="col">
             <h3>Welcome to our library!</h3>
             <p>Please use the navigation bar to search or to add a book</p>
-            <p>Total books in the library: <span th:text="${booksTotal}">a lot</span></p>
-            <p>Total authors in the library: <span th:text="${authorsTotal}">a lot</span></p>
+            <p>Total books in the library: <span th:id="booksTotal"></span></p>
+            <p>Total authors in the library: <span th:id="authorsTotal"></span></p>
         </div>
     </div>
 </div>
 
 <div th:replace="~{fragments/scripts::common-scripts}"></div>
+<script>
+    $(document).ready(function () {
+        $.getJSON('/library/totals').then(
+            function success(value) {
+                $('#booksTotal').html(value.booksCount);
+                $('#authorsTotal').html(value.authorsCount);
+            },
+            function failure(reason) {
+                console.log(reason);
+            }
+        )
+    });
+</script>
 </body>
 </html>
