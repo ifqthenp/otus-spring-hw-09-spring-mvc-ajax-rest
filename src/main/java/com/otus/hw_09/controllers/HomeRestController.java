@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-public class HomeRESTController {
+public class HomeRestController {
 
     private final BookRepository bookRepo;
     private final AuthorRepository authorRepo;
