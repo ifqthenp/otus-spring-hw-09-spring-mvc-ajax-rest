@@ -15,7 +15,7 @@
     </div>
     <div class="row mt-4">
         <div class="col">
-            <form action="#" th:action="@{/library/books/add}" th:object="${bookFormDto}" method="post">
+            <form th:id="bookAddForm" th:action="@{/library/api/books/add}" th:object="${bookFormDto}" method="post">
                 <div class="form-group">
                     <label for="inputBookTitle">Enter book title</label>
                     <input type="text" th:field="*{title}" class="form-control" id="inputBookTitle">
@@ -48,5 +48,35 @@
 </div>
 
 <div th:replace="~{fragments/scripts::common-scripts}"></div>
+
+<script>
+    (function ($) {
+        var bookAddForm = $('#bookAddForm');
+
+        bookAddForm.submit(function (e) {
+            e.preventDefault();
+
+            var api_url = '/library/api/books/save';
+            var form_input = $(this).serialize();
+            console.log(form_input);
+
+            $.post({
+                url: api_url,
+                data: form_input
+            }).then(
+                function (value) {
+                    window.location.href = "/home";
+                    console.log(value);
+                },
+                function (xhr, error) {
+                    alert("Saving a book failed!");
+                    console.log(error.toUpperCase() + '. HTTP status: ' + xhr.status);
+                }
+            )
+        })
+
+    })(jQuery);
+</script>
+
 </body>
 </html>
