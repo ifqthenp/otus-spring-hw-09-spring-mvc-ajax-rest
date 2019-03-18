@@ -10,33 +10,91 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col">
-            <h3>Please use this form to start searching</h3>
+            <h3 th:id="resultMsg">Please use this form to start searching</h3>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col">
-            <form action="#" th:action="@{/library/books/search/full}" method="get">
+            <form th:id="searchForm" th:action="@{/library/api/books/search}" method="get">
                 <div class="form-group">
                     <label for="inputBookTitle">Search by book title</label>
                     <input type="text" th:name="title" class="form-control" id="inputBookTitle"
                            aria-describedby="bookHelp">
                     <small id="bookHelp" class="form-text text-muted">Search by title is case insensitive</small>
                 </div>
-                <div class="form-group">
-                    <label for="inputAuthorName">Search by author name</label>
-                    <input type="text" th:name="author" class="form-control" id="inputAuthorName">
-                    <small id="authorHelp" class="form-text text-muted">Search by first or last name is allowed</small>
-                </div>
-                <div class="form-group">
-                    <label for="inputGenre">Search by genre</label>
-                    <input type="text" th:name="genre" class="form-control" id="inputGenre">
-                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        </div>
+    </div>
+    <div th:id="successResult" class="row mt-4">
+        <div class="col">
+            <table class="table table-striped">
+                <tbody th:id="tableResult">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div th:id="emptyResult" class="row mt-4">
+        <div class="col">
+            <p>Nothing was found</p>
         </div>
     </div>
 </div>
 
 <div th:replace="~{fragments/scripts::common-scripts}"></div>
+
+<script>
+    (function ($) {
+        var searchForm = $('#searchForm');
+        var successResultDiv = $('#successResult');
+        var emptyResultDiv = $('#emptyResult');
+        successResultDiv.hide();
+        emptyResultDiv.hide();
+
+        searchForm.submit(function (e) {
+            e.preventDefault();
+            searchForm.hide();
+
+            var form_input = $(this).serialize();
+            var action_url = $(this).attr('action');
+            var api_url = '/library/api/books/search';
+
+            console.log(form_input);
+
+            $.getJSON({
+                url: api_url,
+                data: form_input
+            }).then(
+                function (response) {
+                    console.log('$.get succeeded');
+                    console.log(response);
+                    if (response.length > 0) {
+                        successResultDiv.show();
+                        var tableRes = '';
+                        $.each(response, function (i, value) {
+                            tableRes += '<tr><td>' + ++i + '</td><td>' + value.title + '</td><td>' + value.authors +
+                                '</td><td>' + value.genres + '</td></tr>';
+                            console.log(i + " " + value.title)
+                        });
+                        $('#tableResult').append(tableRes);
+                    } else {
+                        emptyResultDiv.show();
+                    }
+                    $('#resultMsg').text("Search result:")
+                },
+                function (xhr, error) {
+                    alert("Search failed!");
+                    console.log(error.toUpperCase() + '. HTTP status: ' + xhr.status);
+                }
+            )
+        });
+    })(jQuery);
+</script>
 </body>
 </html>
