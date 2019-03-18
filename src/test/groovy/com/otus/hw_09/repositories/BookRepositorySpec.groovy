@@ -1,6 +1,7 @@
 package com.otus.hw_09.repositories
 
 import com.otus.hw_09.domain.Book
+import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -19,9 +20,9 @@ class BookRepositorySpec extends Specification {
 
     def setup() {
         def books = [
-            new Book('id-1', 'Title-1', '1990', ['authorId-1'], ['genreId-1'] as Set, []),
-            new Book('id-2', 'Title-2', '1990', ['authorId-2'], ['genreId-2'] as Set, []),
-            new Book('id-3', 'Title-3', '1990', ['authorId-3'], ['genreId-3'] as Set, [])
+            new Book(id: new ObjectId(), title: 'Title-1', year: '1990', authors: [], genres: [] as Set, comments: []),
+            new Book(id: new ObjectId(), title: 'Title-2', year: '1990', authors: [], genres: [] as Set, comments: []),
+            new Book(id: new ObjectId(), title: 'Title-3', year: '1990', authors: [], genres: [] as Set, comments: [])
         ]
         books.each { template.save(it) }
     }

@@ -1,6 +1,7 @@
 package com.otus.hw_09.repositories
 
 import com.otus.hw_09.domain.Author
+import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -19,9 +20,9 @@ class AuthorRepositorySpec extends Specification {
 
     def setup() {
         def authors = [
-            new Author('1', 'Leo', 'Tolstoy'),
-            new Author('2', 'Leonardo', 'Fibonacci'),
-            new Author('3', 'Lewis', 'Carrol')
+            new Author(id: new ObjectId(), firstName: 'Leo', lastName: 'Tolstoy'),
+            new Author(id: new ObjectId(), firstName: 'Leonardo', lastName: 'Fibonacci'),
+            new Author(id: new ObjectId(), firstName: 'Lewis', lastName: 'Carrol')
         ]
         authors.each { template.save(it) }
     }

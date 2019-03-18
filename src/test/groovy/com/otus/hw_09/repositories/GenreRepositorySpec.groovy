@@ -1,6 +1,7 @@
 package com.otus.hw_09.repositories
 
 import com.otus.hw_09.domain.Genre
+import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -19,9 +20,9 @@ class GenreRepositorySpec extends Specification {
 
     def setup() {
         def genres = [
-            new Genre('1', 'Fantasy'),
-            new Genre('2', 'Science-Fiction'),
-            new Genre('3', 'Popular Science'),
+            new Genre(id: new ObjectId(), genreName: 'Fantasy'),
+            new Genre(id: new ObjectId(), genreName: 'Science-Fiction'),
+            new Genre(id: new ObjectId(), genreName: 'Popular Science'),
         ]
         genres.each { template.save(it) }
     }
