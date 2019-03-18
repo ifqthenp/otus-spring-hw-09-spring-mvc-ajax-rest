@@ -1,7 +1,6 @@
 package com.otus.hw_09.controllers;
 
-import com.otus.hw_09.repositories.AuthorRepository;
-import com.otus.hw_09.repositories.BookRepository;
+import com.otus.hw_09.library.LibraryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +14,12 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class HomeRestController {
 
-    private final BookRepository bookRepo;
-    private final AuthorRepository authorRepo;
+    private final LibraryService libraryService;
 
     @GetMapping(path = "/library/api/totals", produces = {"application/json"})
     public ResponseEntity<Map> getLibraryTotals() {
-        final long booksCount = bookRepo.count();
-        final long authorsCount = authorRepo.count();
+        final long booksCount = libraryService.getBooksCount();
+        final long authorsCount = libraryService.getAuthorsCount();
         final Map<String, Long> totals = new HashMap<>();
         totals.put("booksCount", booksCount);
         totals.put("authorsCount", authorsCount);
