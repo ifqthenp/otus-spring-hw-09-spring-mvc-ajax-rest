@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ifqthenp/otus-spring-hw-09-spring-mvc-ajax-rest.svg?branch=master)](https://travis-ci.org/ifqthenp/otus-spring-hw-09-spring-mvc-ajax-rest)
+
 # Spring Framework Developer Course
 
 - Andrei Bogomja
