@@ -34,6 +34,7 @@ ext {
 dependencies {
     implementation(
         'org.springframework.boot:spring-boot-starter-web',
+        'org.springframework.boot:spring-boot-starter-data-rest',
         'org.springframework.boot:spring-boot-starter-data-mongodb',
         'org.springframework.boot:spring-boot-starter-thymeleaf',
         "org.javassist:javassist:${javaAssistVersion}",
