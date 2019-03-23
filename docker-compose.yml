@@ -3,7 +3,6 @@ services:
   mongo:
     container_name: 'my-mongo'
     image: mongo:4.0.6-xenial
-    restart: always
     ports:
       - 27017:27017
     networks:
